@@ -1,5 +1,34 @@
 # Day 26 — Operating Dashboard Lab
 
+## 👤 Thông tin học viên
+
+| | |
+|---|---|
+| **Họ và tên** | Nguyễn Đức Anh |
+| **Mã học viên** | 2A202601063 |
+| **Sản phẩm** | **Oce** — Trợ lý AI phân tích dữ liệu tài chính cho kế toán |
+| **Mô hình** | B2B |
+| **Bài làm** | [`submissions/2A202601063/operating-dashboard.md`](submissions/2A202601063/operating-dashboard.md) |
+
+### Tóm tắt dashboard
+
+- **North Star:** Time-to-first-value ≤ 7 ngày
+- **7 đèn:** 2 Leading (TTFV, Activation rate) · 3 Operating (Trial-to-paid, AI cost/report, Usage depth) · 2 Lagging (GM, CAC payback)
+- **2 ngưỡng [MH]:** MH-01 (AI cost trần $1,245/completed) · MH-02 (Activation breakeven 42%)
+- **5 luật:** R-01 đến R-05, trong đó R-01 + R-03 là luật dừng
+- **Validator:** ✅ PASS · 30/30 tests OK
+
+### Đầu vào từ Day 24–25
+
+| Nguồn | Sản phẩm | Dữ liệu dùng |
+|---|---|---|
+| Day 24 | Finora (khác Oce) | ⚠️ Không dùng — ghi trung thực thiếu dữ liệu |
+| Day 25 | **Oce** | Cost/Job $1,845 · GM 75,1% · ARPU $167 · Kênh PLG |
+
+---
+
+## Hướng dẫn Lab (từ repo giảng viên)
+
 Lab **“Đèn nào bật trước?”** biến mô hình Day 24–25 thành một hệ điều hành có
 đèn báo sớm, ngưỡng, luật quyết định và cổng gác 90 ngày. Nội dung gốc và toàn
 bộ benchmark nằm trong [`Day26-AI-Product-Handbook.md`](Day26-AI-Product-Handbook.md).
