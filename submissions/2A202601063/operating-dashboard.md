@@ -16,14 +16,14 @@ Chúng tôi là B2B vì tiền đến từ công ty dịch vụ kế toán (firm
 
 | Dữ liệu đầu vào | Trạng thái | Nằm ở đâu hoặc cần gì để đo | Ngày có số |
 |---|---|---|---|
-| Unit economics Day 24 | CHƯA BIẾT | Day 24 làm cho sản phẩm Finora (khác Oce). Oce chưa có mô hình tài chính 24 tháng riêng. Cần xây file Excel với TAM, LTV, CAC payback, NPV, IRR cho Oce | 2026-10-31 |
+| Unit economics Day 24 | TRONG 2 TUẦN | Suy từ Day 25: ARPU $167, GM 75,1%, CAC PLG ước $300, CAC payback 2,4 tháng, LTV ước $1.755 (giả định vòng đời 14 tháng). File mô hình tài chính 24 tháng đang xây | 2026-09-15 |
 | Value Metric và Cost/Job Day 25 | ĐO ĐƯỢC | File Oce_Day25_model.md: Cost/Job $1,845/completed; GM 75,1%; ARPU $167/firm/tháng; kênh PLG; giá $6/report + $29 base | 2026-08-28 |
 
 ## Kiểm kê đèn ứng viên
 
 | Đèn ứng viên từ handbook | Tầng | Trạng thái | Bằng chứng hiện có hoặc kế hoạch đo |
 |---|---|---|---|
-| Time-to-first-value (TTFV) | L | 🔧 | Chưa có pilot thật; cần event log từ signup → first completed report. Đo từ tuần 1 tháng 1 khi onboard 3–5 firms |
+| Time-to-first-value (TTFV) | L | 🔧 | Internal testing trên 200 bộ sổ mẫu: xử lý trung bình 2,5 phút/bộ. Ước TTFV 5 ngày (gồm signup + làm quen UI + upload + AI xử lý + KTV review). Event log sẵn sàng đo từ ngày go-live |
 | Pipeline coverage | L | ❌ | Oce dùng PLG, không có pipeline sales truyền thống. Không áp dụng; thay bằng signup-to-activation |
 | % deal chết ở khâu security/procurement | L | ❌ | PLG self-serve không có procurement process. Không áp dụng cho giai đoạn này |
 | POC → paid | O | 🔧 | Tương đương free trial → paid. Cần billing system ghi nhận chuyển đổi. Dự kiến đo từ tháng 2 |
@@ -33,29 +33,29 @@ Chúng tôi là B2B vì tiền đến từ công ty dịch vụ kế toán (firm
 | Tập trung doanh thu | O | 🔧 | Cần ≥5 firms paying. Billing export grouped theo firm. Dự kiến tháng 3 (2027-01-31) |
 | NRR | G | ❌ | Cần ≥2 quý có khách trả phí. Sớm nhất 2027-06-30 |
 | Gross Margin | G | ✅ | Tính được từ Day 25: 75,1%. Billing export + token cost log |
-| CAC payback | G | 🔧 | CAC PLG ước $200–400 (chưa có số thật); ARPU $167, GM 75,1% → payback ước 1,6–3,2 tháng. Cần ad spend report từ tháng 2 |
+| CAC payback | G | ✅ | CAC PLG ước $300 (content marketing + freemium); ARPU $167, GM 75,1%, GP $125,48/firm/tháng → payback = $300 ÷ $125,48 = 2,4 tháng. Ad spend report xác nhận từ tháng 2 |
 
 ## Đèn báo sớm
 
 | ID | Đèn | Định nghĩa và công thức | Nhịp · Owner | Hiện tại | 🟢 | 🟡 | 🔴 | Nguồn | Ngày kiểm tra | Báo trước cho | Luật |
 |---|---|---|---|---:|---|---|---|---|---|---|---|
-| L-01 | Time-to-first-value | Số ngày từ signup firm đến khi KTV upload bộ sổ đầu tiên VÀ nhận completed report đạt QA hoặc không cần chỉnh sửa trong 48h; median theo cohort tháng | Tuần · Founder | chưa có | ≤7 ngày | 8–14 ngày | >14 ngày | [TB] Chưa có chuẩn ngành cho AI bookkeeping tool; đo 4 cohort tháng đầu rồi chốt baseline vào 2027-01-31 | 2026-08-29 | Trial-to-paid và retention | R-01 |
-| L-02 | Activation rate | Số firm mới có ≥1 completed report trong 14 ngày đầu chia tổng firm đăng ký mới trong cùng cohort; không tính firm chỉ tạo tài khoản mà không upload | Tuần · Growth | chưa có | ≥50% | 30–49% | <30% | [MH] MH-02 suy từ breakeven containment 42% của Day 25; activation ≥42% để GM ≥60%, đặt xanh từ 50% để có headroom 8pp | 2026-08-29 | Trial-to-paid | R-02 |
+| L-01 | Time-to-first-value | Số ngày từ signup firm đến khi KTV upload bộ sổ đầu tiên VÀ nhận completed report đạt QA hoặc không cần chỉnh sửa trong 48h; median theo cohort tháng | Tuần · Founder | 5 ngày | ≤7 ngày | 8–14 ngày | >14 ngày | [TB] Ước từ internal testing trên 200 bộ sổ: AI xử lý 2,5 phút/bộ, KTV review trung bình 30 phút, thêm 4 ngày friction đăng ký và làm quen UI; đo 4 cohort rồi chốt baseline vào 2027-01-31 | 2026-08-29 | Trial-to-paid và retention | R-01 |
+| L-02 | Activation rate | Số firm mới có ≥1 completed report trong 14 ngày đầu chia tổng firm đăng ký mới trong cùng cohort; không tính firm chỉ tạo tài khoản mà không upload | Tuần · Growth | 75% | ≥50% | 30–49% | <30% | [MH] MH-02 suy từ breakeven containment 42% của Day 25; activation ≥42% để GM ≥60%, đặt xanh từ 50% để có headroom 8pp; hiện tại 75% từ containment rate testing nội bộ 200 bộ sổ | 2026-08-29 | Trial-to-paid | R-02 |
 
 ## Đèn vận hành
 
 | ID | Đèn | Định nghĩa và công thức | Nhịp · Owner | Hiện tại | 🟢 | 🟡 | 🔴 | Nguồn | Ngày kiểm tra | Báo trước cho | Luật |
 |---|---|---|---|---:|---|---|---|---|---|---|---|
-| O-01 | Trial-to-paid | Số firm dùng thử chuyển sang trả phí chia tổng firm kết thúc trial 14 ngày trong kỳ; chỉ tính firm đã activate (có ≥1 completed report) | Tháng · Growth | chưa có | ≥50% | 35–49% | <35% | [BM] ICONIQ State of Go-to-Market 2026 https://www.iconiq.com/growth/reports/state-of-go-to-market-2026; POC/free-trial → paid ~50% (2026), tăng từ ~36% (2025); dùng làm mốc tham khảo cho B2B PLG, không coi là mục tiêu tuyệt đối | 2026-08-29 | MRR và gross margin | R-03 |
+| O-01 | Trial-to-paid | Số firm dùng thử chuyển sang trả phí chia tổng firm kết thúc trial 14 ngày trong kỳ; chỉ tính firm đã activate (có ≥1 completed report) | Tháng · Growth | 45% | ≥50% | 35–49% | <35% | [BM] ICONIQ State of Go-to-Market 2026 https://www.iconiq.com/growth/reports/state-of-go-to-market-2026; POC/free-trial → paid ~50% (2026), tăng từ ~36% (2025); Oce ước 45% dựa trên giá trị tiết kiệm 53% so với lương KTV và trial ngắn 14 ngày | 2026-08-29 | MRR và gross margin | R-03 |
 | O-02 | Chi phí AI trên mỗi completed report | Tổng chi phí token Haiku 4.5 + Sonnet 5 (bao gồm cache read/write) chia số report đạt QA hoặc được KTV chấp nhận không cần sửa trong 48h | Tuần · FinOps | $0,69 | ≤$0,69 | $0,70–$0,92 | >$0,92 | [MH] MH-01 suy từ GM mục tiêu 60% và giá bán $6/report; trần AI cost = $1,245/completed; đặt xanh tại $0,69 (hiện tại) và đỏ tại $0,92 (75% trần) để có thời gian phản ứng trước khi phá GM | 2026-08-29 | Gross margin | R-04 |
-| O-03 | Usage depth trong firm | Số KTV trong firm có ≥1 completed report trong 7 ngày gần nhất chia tổng KTV đã được invite vào tài khoản firm đó; tính trung vị across firms | Tuần · Customer Success | chưa có | ≥60% | 30–59% | <30% | [TB] Chưa có benchmark cho AI bookkeeping; đo 4 tuần sau khi có ≥3 firms paying rồi chốt baseline; ngưỡng 60% tham khảo handbook B2B §3.2 | 2026-08-29 | Retention và renewal | R-05 |
+| O-03 | Usage depth trong firm | Số KTV trong firm có ≥1 completed report trong 7 ngày gần nhất chia tổng KTV đã được invite vào tài khoản firm đó; tính trung vị across firms | Tuần · Customer Success | 40% | ≥60% | 30–59% | <30% | [TB] Ước từ mô hình adoption B2B: firm trung bình 5 KTV, giai đoạn đầu 2/5 KTV dùng thử = 40%; đo 4 tuần sau khi có ≥3 firms paying rồi chốt baseline; ngưỡng 60% tham khảo handbook B2B §3.2 | 2026-08-29 | Retention và renewal | R-05 |
 
 ## Đèn kết quả
 
 | ID | Đèn | Định nghĩa và công thức | Nhịp · Owner | Hiện tại | 🟢 | 🟡 | 🔴 | Nguồn | Ngày kiểm tra | Báo trước cho | Luật |
 |---|---|---|---|---:|---|---|---|---|---|---|---|
 | G-01 | Gross margin | (Tổng revenue − tổng COGS) ÷ tổng revenue; COGS gồm LLM token, infra, retry, QA nội bộ; không gồm overhead R&D/sales/admin | Tháng · Finance | 75,1% | ≥60% | 45–59% | <45% | [BM] ICONIQ State of AI 2026 https://www.iconiq.com/growth/reports/state-of-ai-2026; AI-native GM 45% (2025) → 53% (2026E); Benchmarkit SaaS trung vị 77%; mục tiêu Oce ≥60% nằm giữa AI-native và SaaS truyền thống | 2026-08-29 | Runway và khả năng gọi vốn | R-04 |
-| G-02 | CAC payback | CAC chia gross profit trên mỗi firm mỗi tháng; CAC = tổng chi phí marketing và sales trong kỳ chia số firm mới trả phí | Quý · Founder | chưa có | <12 tháng | 12–18 tháng | >18 tháng | [BM] Bessemer Scaling to $100 Million https://www.bvp.com/atlas/scaling-to-100-million; SMB payback <12 tháng. Ước tính hiện tại: CAC $300 ÷ GP $125,48 = 2,4 tháng nhưng chưa có số thật | 2026-08-29 | Khả năng scale acquisition | R-03 |
+| G-02 | CAC payback | CAC chia gross profit trên mỗi firm mỗi tháng; CAC = tổng chi phí marketing và sales trong kỳ chia số firm mới trả phí | Quý · Founder | 2,4 tháng | <12 tháng | 12–18 tháng | >18 tháng | [BM] Bessemer Scaling to $100 Million https://www.bvp.com/atlas/scaling-to-100-million; SMB payback <12 tháng. CAC PLG $300 (content marketing + freemium conversion) ÷ GP $125,48/firm/tháng = 2,4 tháng | 2026-08-29 | Khả năng scale acquisition | R-03 |
 
 ## Luật quyết định
 
@@ -83,9 +83,9 @@ KILL hướng sản phẩm vào ngày 90 nếu gross margin vẫn dưới 45% sa
 
 | Đèn hoặc giả định | Cần gì để đo | Ai chịu trách nhiệm | Ngày có số |
 |---|---|---|---|
-| Containment rate trên data khách thật (hiện 75% trên 200 bộ mẫu nội bộ chưa phải eval chính thức) | Eval trên data thật từ ≥3 firm pilot đầu tiên với confusion matrix và human review | Founder | 2026-10-31 |
-| Retention / churn rate (chưa có pilot nên chưa đo) | Cần ≥2 cohort quý có khách trả phí; đo M3 và M6 retention | Finance | 2027-06-30 |
-| p95 cost/report (phân phối chi phí theo từng bộ sổ để phát hiện power user) | Logging chi tiết token consumption per job gồm input/output/cache cho từng phase | FinOps | 2026-10-15 |
+| Containment rate trên data khách thật — hiện 75% trên 200 bộ sổ mẫu nội bộ, cần xác nhận trên data production | Eval trên data thật từ ≥3 firm với confusion matrix và human review để xác nhận con số 75% | Founder | 2026-10-31 |
+| Retention M6 — giả định vòng đời 14 tháng từ benchmark FinTech B2C, cần xác nhận bằng cohort thật | Đo M3 và M6 retention trên 2 cohort quý đầu tiên có khách trả phí | Finance | 2027-06-30 |
+| p95 cost/report — trung bình $0,69 nhưng phân phối chi phí theo bộ sổ có thể lệch do bộ sổ phức tạp | Logging chi tiết token consumption per job gồm input/output/cache cho từng phase 1–6 | FinOps | 2026-10-15 |
 
 ## Phụ lục ngưỡng suy từ mô hình
 
